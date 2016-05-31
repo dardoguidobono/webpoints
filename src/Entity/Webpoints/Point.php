@@ -1,6 +1,6 @@
 <?php
 
-namespace Entity;
+namespace Entity\Webpoints;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -27,11 +27,17 @@ class Point {
     /** @ORM\Column(type="datetime",name="updated",nullable=false) */
     protected $updated;
 
-    /** @ORM\Column(type="decimal",name="latitude",precision=12,scale=4,nullable=false) */
+    /** @ORM\Column(type="decimal",name="latitude",precision=14,scale=8,nullable=false) */
     protected $latitude;
 
-    /** @ORM\Column(type="decimal",name="longitude",precision=12,scale=4,nullable=false) */
+    /** @ORM\Column(type="decimal",name="longitude",precision=14,scale=8,nullable=false) */
     protected $longitude;
+
+    /** @ORM\Column(type="string", length=255,name="file",nullable=false) */
+    protected $path;
+
+    /** @ORM\Column(type="string", length=255,name="file_reference",nullable=false) */
+    protected $fileReference;
 
 
 

@@ -14,7 +14,4 @@ use Knp\Console\Application;
 require_once __DIR__ . '/../app/bootstrap.php';
 /** @var Application $appConsole */
 $appConsole = $app['console'];
-$appConsole->addCommands([
-    new QueueGenerateSchemaCommand(),
-]);
 $appConsole->run();

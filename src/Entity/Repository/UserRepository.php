@@ -1,5 +1,5 @@
 <?php
-namespace Entity\Catalog\Repository;
+namespace Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Query;
@@ -7,7 +7,7 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * Class UserRepository
- * @package Entity\Catalog\Repository
+ * @package Entity\Repository
  */
 class UserRepository extends EntityRepository {
 
@@ -18,7 +18,7 @@ class UserRepository extends EntityRepository {
     public function getAllSorted( $page = 1 ){
         $qb = $this->_em->createQueryBuilder();
         $qb->select('u')
-            ->from('Entity\Catalog\User', 'u')
+            ->from('Entity\User', 'u')
             ->orderBy('u.surname')
             ->addOrderBy('u.firstname')
         ;
@@ -33,7 +33,7 @@ class UserRepository extends EntityRepository {
     public function search( $name , $page = 1){
         $qb = $this->_em->createQueryBuilder();
         $qb->select('u')
-            ->from('Entity\Catalog\User', 'u')
+            ->from('Entity\User', 'u')
             ->where('CONCAT(u.surname, u.firstname) LIKE :name OR u.username LIKE :name')
             ->setParameter('name', "%". $name . "%")
             ->orderBy('u.surname')
@@ -50,7 +50,7 @@ class UserRepository extends EntityRepository {
     public function getAllByOrganisationId( $organisationId, $page = 1 ){
         $qb = $this->_em->createQueryBuilder();
         $qb->select('u')
-            ->from('Entity\Catalog\User', 'u')
+            ->from('Entity\User', 'u')
             ->where('u.organisation = :organisation')
             ->orderBy('u.surname')
             ->addOrderBy('u.firstname')

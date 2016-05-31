@@ -11,14 +11,8 @@ class MobileControllerProvider implements ControllerProviderInterface
         $controllers->match('/auth', 'Controller\Mobile\MobileController::doAuthAction')
             ->bind('mobile.auth');
 
-        $controllers->match('/update','Controller\Mobile\MobileController::getProductsAction')
-            ->bind('mobile.update');
-
-        $controllers->match('/offers', 'Controller\Mobile\MobileController::getOffersAction')
-            ->bind('mobile.offers');
-
-        $controllers->match('/notifications', 'Controller\Mobile\MobileController::getNotificationAction')
-            ->bind('mobile.notifications');
+        $controllers->match('/add', 'Controller\Mobile\MobileController::doAddAction')
+            ->bind('mobile.add');
 
         return $controllers;
     }

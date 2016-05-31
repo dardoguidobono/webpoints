@@ -1,5 +1,5 @@
 <?php
-namespace Entity\Catalog;
+namespace Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping\Index;
 use Orm\DoctrineConnection;
 
 /**
- * @ORM\Entity(repositoryClass="Entity\Catalog\Repository\OrganisationRepository")
+ * @ORM\Entity(repositoryClass="Entity\Repository\OrganisationRepository")
  * @ORM\Table(name="organisation",indexes={@Index(name="legacy_code_idx", columns={"legacy_code"}),@Index(name="name_idx", columns={"name"})})
  */
 class Organisation

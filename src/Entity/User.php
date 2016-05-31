@@ -1,15 +1,14 @@
 <?php
 
-namespace Entity\Catalog;
+namespace Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Orm\DoctrineConnection;
 use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 
 /**
- * @ORM\Entity(repositoryClass="Entity\Catalog\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="Entity\Repository\UserRepository")
  * @ORM\Table(name="user")
  */
 class User implements UserInterface {

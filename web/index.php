@@ -1,7 +1,21 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: dardo
- * Date: 31/5/16
- * Time: 15:48
+ * Bootstrapping
  */
+use Core\Application;
+
+require_once __DIR__ . '/../app/bootstrap.php';
+
+/**
+ * routes mount points
+ */
+
+$app->mount('/mobile',  new \Manager\Provider\MobileControllerProvider());
+$app->get('/', function( Application $app ) {
+    return "";
+    //return $app->redirectToRoute( 'client.index' );
+});
+
+
+
+$app->run();

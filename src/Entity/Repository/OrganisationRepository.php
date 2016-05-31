@@ -1,5 +1,5 @@
 <?php
-namespace Entity\Catalog\Repository;
+namespace Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Query;
@@ -7,7 +7,7 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * Class OrganisationRepository
- * @package Entity\Catalog\Repository
+ * @package Entity\Repository
  */
 class OrganisationRepository extends EntityRepository {
 
@@ -18,7 +18,7 @@ class OrganisationRepository extends EntityRepository {
     public function getAllSorted( $page = 1 ){
         $qb = $this->_em->createQueryBuilder();
         $qb->select('u')
-            ->from('Entity\Catalog\Organisation', 'u')
+            ->from('Entity\Organisation', 'u')
             ->orderBy('u.name');
         return $this->paginate( $qb->getQuery(), $page, 10, false );
     }
@@ -31,7 +31,7 @@ class OrganisationRepository extends EntityRepository {
     public function search( $name , $page = 1){
         $qb = $this->_em->createQueryBuilder();
         $qb->select('u')
-            ->from('Entity\Catalog\Organisation', 'u')
+            ->from('Entity\Organisation', 'u')
             ->where('u.name LIKE :name')
             ->setParameter('name', "%". $name . "%")
             ->orderBy('u.name');
